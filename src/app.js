@@ -15,7 +15,7 @@ app.use(express.static("public"))
 app.use(cookieParser())
 
 // User Routes
-import userRouter from './routes/user.routes.js'
+import registerUser from './routes/user.routes.js'
 import loginUser from './routes/user.routes.js'
 import logoutUser from "./routes/user.routes.js"
 import changeCurrentPassword from "./routes/user.routes.js"
@@ -27,7 +27,7 @@ import followUser  from "./routes/user.routes.js"
 import  unfollowUser from "./routes/user.routes.js"
 import refreshAccessToken from "./routes/user.routes.js"
 app.use("/api/v1/users",getCurrentUser)
-app.use("/api/v1/users", userRouter)
+app.use("/api/v1/users", registerUser)
 app.use("/api/v1/users",loginUser)
 app.use("/api/v1/users",logoutUser)
 app.use("/api/v1/users",changeCurrentPassword)
@@ -45,11 +45,12 @@ import creatingPost from "./routes/post.routes.js"
 import deletePost from "./routes/post.routes.js"
 import updatePost from "./routes/post.routes.js"
 import getuserPost from "./routes/post.routes.js"
+import getAllPosts from "./routes/post.routes.js"
 
 app.use("/api/v1/posts",creatingPost)
 app.use("/api/v1/posts",deletePost)
 app.use("/api/v1/posts",updatePost)
-app.use("/api/v1/posts",getuserPost)
+app.use("/api/v1/posts",getAllPosts)
 
 
 
@@ -71,17 +72,6 @@ import fetchComment  from "./routes/comment.route.js"
 app.use("/api/v1/comments",newComments);
 app.use("/api/v1/comments",deleteComments)
 app.use("/api/v1/comments",fetchComment)
-
-
-
-
-
-
-
-
-
-
-
 
 
 export { app }

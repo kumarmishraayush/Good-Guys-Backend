@@ -7,6 +7,7 @@ import {
   getuserPost,
   updatePost,
   deletePost,
+  getAllPosts,
 } from "../controllers/post.controllers.js";
 
 const router = Router();
@@ -23,7 +24,8 @@ router.route("/create").post(
 
 router.route("/delete").delete(deletePost)
 router.route("/update").post(upload.single("postImage"),updatePost)
-router.route("/Get-Post").get(getuserPost)
+router.route("/Get-Post").post(getuserPost)
+router.route("/Get-AllPost").get(getAllPosts)
 
 
 
